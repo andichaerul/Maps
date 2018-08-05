@@ -55,10 +55,51 @@ var autocompleteDropdownAjax = app.autocomplete.create({
   openIn: 'dropdown',
   preloader: true, //enable preloader
   /* If we set valueProperty to "id" then input value on select will be set according to this property */
-  valueProperty: 'id', //object's "value" property name
+  valueProperty: 'name', //object's "value" property name
   textProperty: 'name', //object's "text" property name
   limit: 20, //limit to 20 results
-  dropdownPlaceholderText: 'Try "JavaScript"',
+  dropdownPlaceholderText: 'Ketik Lokasi Awal',
+  source: function (query, render) {
+    var autocomplete = this;
+    var results = [];
+    if (query.length === 0) {
+      render(results);
+      return;
+    }
+    // Show Preloader
+    autocomplete.preloaderShow();
+
+    // Do Ajax request to Autocomplete data
+    app.request({
+      url: 'http://localhost/maps-ag/Maps/server/load-point.php',
+      method: 'GET',
+      dataType: 'json',
+      //send "query" to server. Useful in case you generate response dynamically
+      data: {
+        query: query,
+      },
+      success: function (data) {
+        // Find matched items
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].name.toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(data[i]);
+        }
+        // Hide Preoloader
+        autocomplete.preloaderHide();
+        // Render items by passing array with result items
+        render(results);
+      }
+    });
+  }
+});
+var autocompleteDropdownAjax = app.autocomplete.create({
+  inputEl: '#lokasitujuan',
+  openIn: 'dropdown',
+  preloader: true, //enable preloader
+  /* If we set valueProperty to "id" then input value on select will be set according to this property */
+  valueProperty: 'name', //object's "value" property name
+  textProperty: 'name', //object's "text" property name
+  limit: 20, //limit to 20 results
+  dropdownPlaceholderText: 'Ketik Lokasi Tujuan',
   source: function (query, render) {
     var autocomplete = this;
     var results = [];
@@ -126,22 +167,16 @@ var toastBottom = app.toast.create({
   closeTimeout: 2000,
 });
 
-$$('.caritiket').on('click', function(){
-  var dari= document.getElementById("dari").value;
-  var tujuan= document.getElementById("tujuan").value;
-  var tanggal= document.getElementById("calendar-default").value;    
+$$('.ceklokasi').on('click', function(){
+  var lokasiawal= document.getElementById("lokasiawal").value;
+  var lokasitujuan= document.getElementById("lokasitujuan").value;   
     
-  if (dari==null || dari=="")
+  if (lokasiawal==null || lokasiawal=="")
         {
             toastBottom.open();
             return false;
         }
-  if (tujuan==null || tujuan=="")
-        {
-            toastBottom.open();
-            return false;
-        }
-  if (tanggal==null || tanggal=="")
+  if (lokasitujuan==null || lokasitujuan=="")
         {
             toastBottom.open();
             return false;

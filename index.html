@@ -13,9 +13,12 @@
     <link rel="stylesheet" href="css/framework7.min.css">
     <!-- Font CSS -->
     <link rel="stylesheet" href="css/framework7-icons.css">
+    <link href="dist/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/my-app.css">
     <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="dist/jquery.vmap.js"></script>
+    <script type="text/javascript" src="dist/maps/jquery.vmap.world.js" charset="utf-8"></script>
   </head>
   <body class="color-theme-red">
     <!-- App root element -->
@@ -44,14 +47,14 @@
             <div class="list" style="margin-top:0px ">
              
               <ul>
-                <form class="form-store-data" id="my-form">
+                <form class="form-store-data" id="">
 	                  <li class="item-divider" style="height: 20px"></li>	
 	                  <!-- Form Input Titik Kordinat -->	
 	                  <li class="item-content item-input">      
-					      <div class="item-inner">
+					      <div class="item-inner">  
 					        <div class="item-title item-floating-label">Titik Asal</div>
 					        <div class="item-input-wrap">
-					          <input type="text" placeholder="" id="lokasiawal">
+					          <input type="text" placeholder="" name="from" id="lokasiawal">
 					          <span class="input-clear-button"></span>
 					        </div>
 					      </div>
@@ -62,13 +65,14 @@
                 <div class="item-inner">
                   <div class="item-title item-floating-label">Titik Tujuan</div>
                   <div class="item-input-wrap">
-                    <input type="text" placeholder="" id="lokasitujuan">
+                    <input type="text" placeholder="" name="to" id="lokasitujuan">
                     <span class="input-clear-button"></span>
                   </div>
                 </div>
+
              <!-- Close Form Input Titik Kordinat -->
              <li class="item-divider" style="height: 20px"></li>   
-             </li>	
+             </li>
 	                 <li class="item-divider" style="height: 20px"></li>
 	                 <li class="item-divider" style="height: 20px"></li>  
    				</form>

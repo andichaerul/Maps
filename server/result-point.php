@@ -11,22 +11,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT * FROM mappoint";
+$mama = $_GET['from'];
+echo "".$mama."";
+$sql = "SELECT * FROM mappoint WHERE PointName=".$mama."";
 $result = $conn->query($sql);
+
 ?>
-[
-<?php
-$n = 0 ;
-foreach ($result as $row) {
-	echo "{
-	\"id\":".$n.",
-	\"name\":\"".$row['PointName']."\"
-	},";
-$n++;	
-}
-?>
-{
-	"id":100,
-	"name":"No"
-}
-]

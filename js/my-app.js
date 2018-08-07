@@ -41,8 +41,8 @@ var app = new Framework7({
       },
     },
     {
-      path: '/pax_form/',
-      componentUrl: './pax_form.html',
+      path: '/solutions/',
+      componentUrl: './solutions.html',
     },    
   ],
   calendar: {
@@ -91,6 +91,7 @@ var autocompleteDropdownAjax = app.autocomplete.create({
     });
   }
 });
+
 var autocompleteDropdownAjax = app.autocomplete.create({
   inputEl: '#lokasitujuan',
   openIn: 'dropdown',

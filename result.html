@@ -11,7 +11,7 @@
       </div>
       <div class="title">
         <div class="row" style="font-size: 15px">
-          <div class="col-45%" id="fromnavbar"></div>
+          <div class="col-45%" id="fromnavbar"></div><br>
           <div class="col-45%" id="tonavbar"></div>
         </div>
         <div class="row">
@@ -24,13 +24,14 @@
     <div class="page-content">
       <div id="div1"></div>
       <div class="list" style="margin-top: 0px">
-        <xx>
           <span class="value" id="seatcode" style="display:none; "></span>
-              <ul class="bustrip">
-                  </div>
-                </div>
-              </ul>
-      </xx>
+      </div>
+      <div class="block">
+        <div class="row">
+          <button class="col button button-fill" id="nextsolutions">Cari Rute Terbaik</button>
+        </div>
+      </div>
+    </div>
       </div>
     </div>
   </div>
@@ -58,9 +59,13 @@
          console.log(awal);
          tujuan = $("#lokasitujuan").val();
          $("#tonavbar").append(tujuan);
-         mylink = "http://localhost/algo/home/result_point?from="+awal+"&to="+tujuan.replace(/ /g, '%20')+"";
+         mylink = "http://localhost/algo/home/result_point?from="+awal.replace(/ /g, '%20')+"&to="+tujuan.replace(/ /g, '%20')+"";
          console.log(mylink);
          $("#div1").load(mylink);
+         $$('#nextsolutions').on('click', function()
+         {
+         mainView.router.navigate('/solutions/')
+       });
       },
       pageAfterOut: function () {
         // page has left the view

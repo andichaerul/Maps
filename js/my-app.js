@@ -5,6 +5,7 @@ var app = new Framework7({
   name: 'My App',
   // App id
   id: 'com.myapp.test',
+  cache: false,
   // Enable swipe panel
   smartSelect: {
     closeOnSelect:'true',
@@ -68,7 +69,7 @@ var autocompleteDropdownAjax = app.autocomplete.create({
 
     // Do Ajax request to Autocomplete data
     app.request({
-      url: 'http://localhost/maps-ag/Maps/server/load-point.php',
+      url: 'http://192.168.43.59/maps-ag/Maps/server/load-point.php',
       method: 'GET',
       dataType: 'json',
       //send "query" to server. Useful in case you generate response dynamically
@@ -110,7 +111,7 @@ var autocompleteDropdownAjax = app.autocomplete.create({
 
     // Do Ajax request to Autocomplete data
     app.request({
-      url: 'http://localhost/maps-ag/Maps/server/load-point.php',
+      url: 'http://192.168.43.59/maps-ag/Maps/server/load-point.php',
       method: 'GET',
       dataType: 'json',
       //send "query" to server. Useful in case you generate response dynamically

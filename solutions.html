@@ -49,7 +49,7 @@
       darixx = $('#fromserv').val();
       console.log(darixx);
       tujuanxx = $('#toserv').val(); 
-      $("#solusi-dom").load("http://localhost/algo/home/find_round?dari="+darixx+"&tujuan="+tujuanxx+"", function(){
+      $("#solusi-dom").load("http://192.168.43.59/algo/home/find_round?dari="+darixx+"&tujuan="+tujuanxx+"", function(){
         $( "#solusi-dom" ).change(function() {
         $( "#codetrip" ).val( $( "input:checked" ).val());
         $('.item-radio').on('click', function()

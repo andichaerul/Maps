@@ -34,11 +34,8 @@ var app = new Framework7({
     },
     
     {
-      path: '/seat/',
-      componentUrl: './seat.html',
-      options: {
-        animate: false,
-      },
+      path: '/maps/',
+      componentUrl: './maps.html',
     },
     {
       path: '/solutions/',

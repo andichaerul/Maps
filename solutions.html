@@ -46,8 +46,12 @@
       console.log(darixx);
       tujuanxx = $('#toserv').val(); 
       $("#solusi-dom").load("http://localhost/algo/home/find_round?dari="+darixx+"&tujuan="+tujuanxx+"", function(){
-        $( ".item-radio" ).bind( "DOMSubtreeModified", function() {
+        $( "#solusi-dom" ).change(function() {
         $( "#codetrip" ).val( $( "input:checked" ).val());
+        $('.item-radio').on('click', function()
+         {
+         mainView.router.navigate('/maps/')
+       });
       });  
       });  
       

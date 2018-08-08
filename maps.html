@@ -1,0 +1,37 @@
+<template>
+  <div class="page">
+    <div class="navbar no-shadow">
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a class="link back">
+          <i class="icon icon-back"></i>
+          <span class="ios-only">Back</span>
+        </a>
+      </div>
+      <div class="title">Pilih kursi</div>
+    </div>
+  </div>
+    <div class="page-content">
+      <div class="list">
+        <div class="block">
+    
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+
+  return {
+    on: {
+      pageInit: function () {
+        singlemaps = $('#codetrip').val();
+        console.log(singlemaps);
+      },
+      pageAfterOut: function () {
+        // page has left the view
+        
+      },
+    }
+  }
+</script>

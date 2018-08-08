@@ -12,9 +12,10 @@
     </div>
   </div>
     <div class="page-content">
+      <div id="maps-dom"></div>
       <div class="list">
         <div class="block">
-    
+          <!--Dom Here --->
         </div>
       </div>
     </div>
@@ -27,10 +28,12 @@
       pageInit: function () {
         singlemaps = $('#codetrip').val();
         console.log(singlemaps);
+        console.log(darixx);
+        console.log(tujuanxx);
+        $('#maps-dom').load('http://localhost/algo/home/single_map?solutions='+singlemaps+'&from='+darixx+'&to='+tujuanxx+'');
       },
       pageAfterOut: function () {
         // page has left the view
-        
       },
     }
   }

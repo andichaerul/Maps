@@ -8,7 +8,7 @@
           <span class="ios-only">Back</span>
         </a>
       </div>
-      <div class="title">Pilih kursi</div>
+      <div class="title">Tampilan Rute</div>
     </div>
   </div>
     <div class="page-content">
@@ -21,8 +21,13 @@
     </div>
   </div>
 </template>
+<style>
+  .timeline-item-date {
+    background: #d2691e00 !important;
+}
+</style>
 <script>
-
+app.preloader.show();
   return {
     on: {
       pageInit: function () {
@@ -30,7 +35,9 @@
         console.log(singlemaps);
         console.log(darixx);
         console.log(tujuanxx);
-        $('#maps-dom').load('http://192.168.43.59/algo/home/single_map?solutions='+singlemaps+'&from='+darixx+'&to='+tujuanxx+'');
+        $('#maps-dom').load('https://birautama.com/genetika/algo/home/single_map?solutions='+singlemaps+'&from='+darixx+'&to='+tujuanxx+'',function(){
+          app.preloader.hide();
+        });
       },
       pageAfterOut: function () {
         // page has left the view

@@ -36,6 +36,7 @@
 </template>
 <!-- component styles -->
 <script>
+  app.preloader.show();
   // script must return component object
   return {
     data: function () {
@@ -49,21 +50,27 @@
         var self = this.$app.dialog.alert('Hello world!');
       },
     },
-    on: {
+    on: { 
       pageInit: function () {
+        
          awal = $("#lokasiawal").val();
          $("#fromnavbar").append(awal);
          console.log(awal);
          tujuan = $("#lokasitujuan").val();
          $("#tonavbar").append(tujuan);
-         mylink = "http://192.168.43.59/algo/home/result_point?from="+awal.replace(/ /g, '%20')+"&to="+tujuan.replace(/ /g, '%20')+"";
+         mylink = "https://birautama.com/genetika/algo/home/result_point?from="+awal.replace(/ /g, '%20')+"&to="+tujuan.replace(/ /g, '%20')+"";
          console.log(mylink);
-         $("#div1").load(mylink);
+         $("#div1").load(mylink,function(){
+          app.preloader.hide();
+         });
+         
          $$('#nextsolutions').on('click', function()
          {
          mainView.router.navigate('/solutions/')
        });
+
       },
+
       pageAfterOut: function () {
         // page has left the view
       },

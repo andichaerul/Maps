@@ -3,9 +3,9 @@ var app = new Framework7({
   root: '#app',
   // App Name
   name: 'My App',
+  cahce:false,
   // App id
   id: 'com.myapp.test',
-  cache: false,
   // Enable swipe panel
   smartSelect: {
     closeOnSelect:'true',
@@ -69,7 +69,7 @@ var autocompleteDropdownAjax = app.autocomplete.create({
 
     // Do Ajax request to Autocomplete data
     app.request({
-      url: 'http://192.168.43.59/maps-ag/Maps/server/load-point.php',
+      url: 'https://birautama.com/genetika/algo/',
       method: 'GET',
       dataType: 'json',
       //send "query" to server. Useful in case you generate response dynamically
@@ -111,7 +111,7 @@ var autocompleteDropdownAjax = app.autocomplete.create({
 
     // Do Ajax request to Autocomplete data
     app.request({
-      url: 'http://192.168.43.59/maps-ag/Maps/server/load-point.php',
+      url: 'https://birautama.com/genetika/algo/',
       method: 'GET',
       dataType: 'json',
       //send "query" to server. Useful in case you generate response dynamically
@@ -149,18 +149,7 @@ var calendarDefault = app.calendar.create({
   //  },
     closeOnSelect:'true',
 });
-
-$("#splash-screen").delay(3000).fadeOut();
-app.preloader.show(); 
  
-       $.getJSON("https://birautama.com/sansi/mobileapp/index.php/",{} ,function(result){
-            $.each(result, function(i, field){
-                $(".pilih_rute").append('<option value="' + field.kode_rute + '">' + field.daftar_rute + '</option>');
-            });
-
-            app.preloader.hide();
-        }); 
-
 var toastBottom = app.toast.create({
   text: 'Pencarian anda belum lengkap',
   closeTimeout: 2000,
